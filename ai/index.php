@@ -22,7 +22,7 @@
 	$by_f = dev::rows("select feature, count(*) n, sum(usd) usd from company_ai_log l where $w group by feature order by usd desc");
 	$by_m = dev::rows("select model, count(*) n, sum(usd) usd, sum(input_tokens + cache_read + cache_write) tin, sum(output_tokens) tout from company_ai_log l where $w group by model order by usd desc");
 	$last = dev::rows("select l.*, c.name cname, u.name uname from company_ai_log l left join company c on c.id = l.company_id left join user u on u.id = l.user_id where $w order by l.id desc limit 50");
-	$feat = ['waybill' => t::w('Reading waybills', 'Накладной оқу'), 'other' => t::w('Other', 'Басқа')];
+	$feat = ['waybill' => t::w('Reading waybills', 'Накладной оқу'), 'tpl_ai' => t::w('Recipe templates (AI)', 'Граммовка шаблондары (ЖИ)'), 'other' => t::w('Other', 'Басқа')];
 	$usd = function ($x) { return '$' . number_format((float)$x, (float)$x < 1 ? 4 : 2, '.', ' '); };
 	$kzt = function ($x) use ($rate) { return dev::money((float)$x * $rate); };
 	$tk = function ($x) { $x = (int)$x; return $x >= 1e6 ? round($x / 1e6, 2) . ' M' : ($x >= 1e3 ? round($x / 1e3, 1) . ' K' : $x); };

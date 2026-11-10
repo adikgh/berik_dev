@@ -32,6 +32,8 @@
 .dv_c .btn.btn_s { min-height: 38px; padding: 0 14px; font-size: 13px; border-radius: 8px; }
 .dv_c .btn.btn_w { width: 100%; }
 .dv_c .btn[disabled] { opacity: .5; pointer-events: none; }
+/* ✕ (btn_dd) батырмасы дөңгелек қалады: 44×44 (2026-11-10) */
+.dv_c .btn.btn_dd:not(.btn_dd_54) { height: 44px; min-height: 44px; padding: 0; border-radius: 50%; }
 
 /* блоктар */
 .dv_c .card { background: #fff; border-radius: var(--r); box-shadow: var(--sh); padding: 20px; }
