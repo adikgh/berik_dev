@@ -1,0 +1,9 @@
+/config/db.php
+/config/auth_key.php
+*.bak_*
+*.sql
+/config/secret.php
+/config/map_key.php
+/config/smsc_api.php
+/config/ai.php
+/config/wa_conf.php

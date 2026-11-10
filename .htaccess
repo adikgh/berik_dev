@@ -1,0 +1,4 @@
+AddDefaultCharset utf-8
+<FilesMatch "\.(sql|bak|example)$">
+	Require all denied
+</FilesMatch>
