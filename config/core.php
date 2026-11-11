@@ -2,6 +2,19 @@
 // Әзірлеуші панелі (dev.berik.c → devb.gprog.kz).
 // Кіру компания жұмысшыларынан бөлек: dev_staff кестесі, 5 рөл (config/lib.php → dev::$roles, dev::$access).
 
+// Қате болса ақ экран емес, қысқа себебі шығады (live-та 500 себебін көру үшін). Пароль мен толық жол көрсетілмейді.
+function dev_fatal_show($msg, $file, $line) {
+	if (!headers_sent()) { http_response_code(500); header('Content-Type: text/html; charset=utf-8'); }
+	$msg = str_replace(dirname(__DIR__, 2), '…', (string)$msg);
+	echo '<pre style="margin:20px;padding:16px;background:#fff3f3;border:1px solid #f0b4b4;border-radius:8px;font:14px/1.5 monospace;white-space:pre-wrap">'
+		. 'Қате: ' . htmlspecialchars($msg) . "\n" . htmlspecialchars(basename((string)$file)) . ':' . (int)$line . '</pre>';
+}
+set_exception_handler(function ($e) { dev_fatal_show(get_class($e) . ': ' . $e->getMessage(), $e->getFile(), $e->getLine()); });
+register_shutdown_function(function () {
+	$e = error_get_last();
+	if ($e && in_array($e['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR], true)) dev_fatal_show($e['message'], $e['file'], $e['line']);
+});
+
 require_once __DIR__ . '/db.php';
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/lib.php';
