@@ -32,7 +32,7 @@ $cn_def = key($cn_tar);
 				<div class="form_c">
 					<div class="form_im">
 						<div class="form_span"><?=t::w('Director', 'Директор')?> · <?=t::w('Phone', 'Телефон')?>:</div>
-						<input type="tel" name="phone" class="form_txt fr_phone" required placeholder="8 (7__) ___-__-__">
+						<input type="tel" name="phone" class="form_txt fr_phone" required placeholder="8 (700) 000-00-00">
 						<i class="fal fa-phone form_icon"></i>
 					</div>
 					<div class="form_im">

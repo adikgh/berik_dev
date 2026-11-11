@@ -29,7 +29,7 @@
 		<div class="card">
 			<div class="card_h"><h2><?=t::w('Add a person', 'Адам қосу')?></h2></div>
 			<form data-post="get.php?add">
-				<label class="mb"><?=t::w('Phone', 'Телефон')?><input name="phone" inputmode="tel" required placeholder="7__ ___ __ __"></label>
+				<label class="mb"><?=t::w('Phone', 'Телефон')?><input type="tel" name="phone" class="fr_phone" inputmode="tel" required placeholder="8 (700) 000-00-00"></label>
 				<label class="mb"><?=t::w('Role', 'Рөлі')?><select name="role" class="tm_role">
 					<? foreach (dev::$roles as $k => $r): ?><option value="<?=$k?>"><?=$r?></option><? endforeach ?>
 				</select></label>

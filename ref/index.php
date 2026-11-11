@@ -29,7 +29,7 @@
 				<label class="mb"><?=t::w('Code (nickname)', 'Код (никнейм)')?><input name="nick" required maxlength="40" placeholder="aidos" pattern="[A-Za-z0-9_]+" title="<?=t::w('Latin letters, digits and _ only', 'Тек латын әріптері, сан және _')?>"></label>
 				<div class="f_row">
 					<label><?=t::w('Name', 'Аты')?><input name="name" maxlength="250"></label>
-					<label><?=t::w('Phone', 'Телефон')?><input name="phone" inputmode="tel" placeholder="7__ ___ __ __"></label>
+					<label><?=t::w('Phone', 'Телефон')?><input type="tel" name="phone" class="fr_phone" inputmode="tel" placeholder="8 (700) 000-00-00"></label>
 				</div>
 				<label class="mb"><?=t::w('Own company (can pay with bonus)', 'Өз компаниясы (бонуспен төлей алады)')?><select name="company_id"><option value="">— <?=t::w('none', 'жоқ')?> —</option>
 					<? foreach ($cs as $c): ?><option value="<?=$c['id']?>"><?=dev::h($c['name'])?></option><? endforeach ?>

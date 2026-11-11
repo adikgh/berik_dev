@@ -47,7 +47,7 @@
 		<div class="card_h"><h2><i class="fal fa-paper-plane"></i> <?=t::w('Check', 'Тексеру')?></h2></div>
 		<p class="note" style="margin-top:0"><?=t::w('Sends a test code to this number with the saved settings.', 'Сақталған баптаумен осы нөмірге тест код жібереді.')?></p>
 		<div class="wa_row">
-			<input type="tel" class="wa_tphone" placeholder="7__ ___ __ __" value="<?=dev::h((string)@$user['phone'])?>">
+			<input type="tel" class="wa_tphone fr_phone" placeholder="8 (700) 000-00-00" value="<?=dev::h((string)@$user['phone'])?>">
 			<button type="button" class="btn btn_g wa_test"><?=t::w('Send', 'Жіберу')?></button>
 		</div>
 		<div class="wa_res"></div>
