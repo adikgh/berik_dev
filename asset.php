@@ -3,6 +3,7 @@
 // /asset.php?f=css/norm.css → <админ>/assets/css/norm.css. Админде өзгерсе, dev-те де өзгереді.
 // ?f= түрі кез келген серверде (Apache, Nginx) жұмыс істейді; /asset.php/css/norm.css түрі де қабылданады.
 require __DIR__ . '/config/db.php';
+require __DIR__ . '/config/adm_dir.php';
 $p = (string)($_GET['f'] ?? '');
 if ($p === '') $p = (string)($_SERVER['PATH_INFO'] ?? '');
 if ($p === '' && preg_match('~/asset\.php(/[^?#]+)~', (string)($_SERVER['REQUEST_URI'] ?? ''), $m)) $p = rawurldecode($m[1]);
